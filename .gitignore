@@ -1,0 +1,6 @@
+# IDE setting
+.vscode
+
+# binary file
+*.out
+*.dSYM/
