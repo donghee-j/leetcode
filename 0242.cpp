@@ -9,20 +9,17 @@
 
 class Solution {
  public:
-  bool isAnagram(const std::string& s, const std::string& t) {
-    std::unordered_map<char, int> sMap;
-    for (char c : s) {
-      if (sMap.insert({c, 1}).second) continue;
-      ++sMap[c];
-    }
+  bool isAnagram(std::string_view s, std::string_view t) {
+    if (s.size() != t.size()) return false;
 
-    std::unordered_map<char, int> tMap;
-    for (char c : t) {
-      if (tMap.insert({c, 1}).second) continue;
-      ++tMap[c];
-    }
+    auto count = [](std::string_view str) {
+      std::unordered_map<char, int> map;
+      for (char c : str) ++map[c];
 
-    return sMap == tMap;
+      return map;
+    };
+
+    return count(s) == count(t);
   }
 };
 
