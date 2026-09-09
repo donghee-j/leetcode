@@ -1,7 +1,6 @@
 // 242. Valid Anagram
 // https://leetcode.com/problems/valid-anagram/description/
 
-#include <algorithm>
 #include <array>
 #include <string_view>
 
@@ -12,14 +11,14 @@ class Solution {
   bool isAnagram(std::string_view s, std::string_view t) {
     if (s.size() != t.size()) return false;
 
-    auto count = [](std::string_view str) {
-      std::array<int, 26> arr{};
-      for (char c : str) ++arr[c - 'a'];
+    std::array<int, 26> arr{};
+    for (char c : s) ++arr[c - 'a'];
 
-      return arr;
-    };
+    for (char c : t) {
+      if (--arr[c - 'a'] < 0) return false;
+    }
 
-    return count(s) == count(t);
+    return true;
   }
 };
 
@@ -27,4 +26,5 @@ int main() {
   Solution s;
   test(s.isAnagram("anagram", "nagaram"), true);
   test(s.isAnagram("rat", "car"), false);
+  test(s.isAnagram("aacc", "ccac"), false);
 }
