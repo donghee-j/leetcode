@@ -1,9 +1,9 @@
 // 242. Valid Anagram
 // https://leetcode.com/problems/valid-anagram/description/
 
-#include <ostream>
-#include <string>
-#include <unordered_map>
+#include <algorithm>
+#include <array>
+#include <string_view>
 
 #include "include/leetcode.hpp"
 
@@ -13,10 +13,10 @@ class Solution {
     if (s.size() != t.size()) return false;
 
     auto count = [](std::string_view str) {
-      std::unordered_map<char, int> map;
-      for (char c : str) ++map[c];
+      std::array<int, 26> arr{};
+      for (char c : str) ++arr[c - 'a'];
 
-      return map;
+      return arr;
     };
 
     return count(s) == count(t);
