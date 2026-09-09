@@ -2,22 +2,19 @@
 // https://leetcode.com/problems/contains-duplicate/
 
 #include <iostream>
-#include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 class Solution {
  public:
   bool containsDuplicate(const std::vector<int>& nums) {
-    std::unordered_map<int, int> seen;  // key and value are same
+    std::unordered_set<int> seen;
     for (int num : nums) {
-      auto it = seen.find(num);
-      if (it != seen.end()) {
-        return true;
-      }
-
-      seen.emplace(num, num);
+      if (!seen.insert(num).second) return true;
+      // Or use structured binding
+      // auto [it, inserted] = seen.intert(num);
+      // if (!inserted) return true;
     }
-
     return false;
   }
 };
