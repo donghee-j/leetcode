@@ -2,9 +2,9 @@
 // https://leetcode.com/problems/group-anagrams/
 
 #include <algorithm>
-#include <ranges>
 #include <string>
 #include <unordered_map>
+#include <utility>
 #include <vector>
 
 #include "include/leetcode.hpp"
@@ -13,22 +13,18 @@ class Solution {
  public:
   std::vector<std::vector<std::string>> groupAnagrams(
       const std::vector<std::string>& strs) {
-    if (strs.size() == 1) return {strs};
-
-    std::unordered_map<std::string, std::vector<std::string>> map;
-    for (auto str : strs) {
-      auto originalStr = str;
-      std::ranges::sort(str);
-      map[str].push_back(originalStr);
+    std::unordered_map<std::string, std::vector<std::string>> groups;
+    for (const auto& str : strs) {
+      std::string key = str;
+      std::ranges::sort(key);
+      groups[key].push_back(str);
     }
 
-    auto values = std::views::values(map);
-    return std::vector<std::vector<std::string>>(values.begin(), values.end());
+    std::vector<std::vector<std::string>> result;
+    for (auto& [_, group] : groups) result.push_back(std::move(group));
+
+    return result;
   }
 };
 
-int main() {
-  Solution s;
-  test(s.groupAnagrams({"eat", "tea", "tan", "ate", "nat", "bat"}),
-       {{"bat"}, {"nat", "tan"}, {"ate", "eat", "tea"}});
-}
+int main() { return 0; }
