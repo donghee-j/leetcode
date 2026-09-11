@@ -11,16 +11,22 @@
 class Solution {
  public:
   bool isPalindrome(const std::string& s) {
-    std::string preprocessed = s;
-    std::erase_if(preprocessed,
-                  [](unsigned char c) { return !std::isalnum(c); });
-    std::ranges::transform(preprocessed, preprocessed.begin(),
-                           [](unsigned char c) { return std::tolower(c); });
-
     int left = 0;
-    int right = std::ssize(preprocessed) - 1;
+    int right = std::ssize(s) - 1;
     while (left < right) {
-      if (preprocessed[left] != preprocessed[right]) return false;
+      if (!std::isalnum(static_cast<unsigned char>(s[left]))) {
+        ++left;
+        continue;
+      }
+
+      if (!std::isalnum(static_cast<unsigned char>(s[right]))) {
+        --right;
+        continue;
+      }
+
+      if (std::tolower(static_cast<unsigned char>(s[left])) !=
+          std::tolower(static_cast<unsigned char>(s[right])))
+        return false;
 
       ++left;
       --right;
