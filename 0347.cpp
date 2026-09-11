@@ -2,6 +2,7 @@
 // https://leetcode.com/problems/top-k-frequent-elements/
 
 #include <algorithm>
+#include <ranges>
 #include <unordered_map>
 #include <utility>
 #include <vector>
@@ -17,16 +18,24 @@ class Solution {
     }
 
     std::vector<std::pair<int, int>> sorted(freq.begin(), freq.end());
-    std::ranges::sort(sorted, [](const auto& a, const auto& b) {
-      return a.second > b.second;
-    });
+    // sort -- O(n log n) time
+    // std::ranges::sort(sorted, [](const auto& a, const auto& b) {
+    //   return a.second > b.second;
+    // });
 
-    std::vector<int> topK;
-    topK.reserve(k);
-    for (int i = 0; i < k; ++i) {
-      topK.push_back(sorted[i].first);
-    }
-    return topK;
+    // alt 1: partial_sort (heap) -- O(n log k) time
+    // std::ranges::partial_sort(
+    //     sorted, sorted.begin() + k,
+    //     [](const auto& a, const auto& b) { return a.second > b.second; });
+
+    // alt 2: nth_element ()
+    std::ranges::nth_element(
+        sorted, sorted.begin() + k,
+        [](const auto& a, const auto& b) { return a.second > b.second; });
+
+    auto topK = sorted | std::views::take(k) | std::views::keys;
+
+    return {topK.begin(), topK.end()};
   }
 };
 
