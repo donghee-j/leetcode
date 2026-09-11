@@ -1,10 +1,8 @@
 // 347. Top K Frequent Elements
 // https://leetcode.com/problems/top-k-frequent-elements/
 
-#include <algorithm>
-#include <ranges>
+#include <iterator>
 #include <unordered_map>
-#include <utility>
 #include <vector>
 
 #include "include/leetcode.hpp"
@@ -17,25 +15,23 @@ class Solution {
       ++freq[num];
     }
 
-    std::vector<std::pair<int, int>> sorted(freq.begin(), freq.end());
-    // sort -- O(n log n) time
-    // std::ranges::sort(sorted, [](const auto& a, const auto& b) {
-    //   return a.second > b.second;
-    // });
+    std::vector<std::vector<int>> buckets(nums.size() + 1);
+    for (const auto& pair : freq) {
+      buckets[pair.second].push_back(pair.first);
+    }
 
-    // alt 1: partial_sort (heap) -- O(n log k) time
-    // std::ranges::partial_sort(
-    //     sorted, sorted.begin() + k,
-    //     [](const auto& a, const auto& b) { return a.second > b.second; });
+    std::vector<int> result;
+    result.reserve(k);
+    for (int i = std::ssize(buckets) - 1; i >= 0; --i) {
+      for (int num : buckets[i]) {
+        result.push_back(num);
+        if (std::ssize(result) == k) break;
+      }
 
-    // alt 2: nth_element ()
-    std::ranges::nth_element(
-        sorted, sorted.begin() + k,
-        [](const auto& a, const auto& b) { return a.second > b.second; });
+      if (std::ssize(result) == k) break;
+    }
 
-    auto topK = sorted | std::views::take(k) | std::views::keys;
-
-    return {topK.begin(), topK.end()};
+    return result;
   }
 };
 
