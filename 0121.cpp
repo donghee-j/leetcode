@@ -2,7 +2,7 @@
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
 #include <algorithm>
-#include <ranges>
+#include <limits>
 #include <vector>
 
 #include "include/leetcode.hpp"
@@ -10,29 +10,16 @@
 class Solution {
  public:
   int maxProfit(const std::vector<int>& prices) {
-    int size = std::ssize(prices);
-    if (size < 2) return 0;
+    int minPrice = std::numeric_limits<int>::max();
+    int best = 0;
 
-    int sell = size - 1;
-    int buy = sell - 1;
-
-    int currentMaxProfit = prices[sell] - prices[buy];
-    int buyPricePrev = prices[buy];
-    while (buy >= 0) {
-      if (prices[buy] < buyPricePrev) {
-        currentMaxProfit =
-            std::max(currentMaxProfit, prices[sell] - prices[buy]);
-      }
-
-      if (prices[buy] > prices[sell]) {
-        sell = buy;
-      }
-
-      buyPricePrev = prices[buy];
-      --buy;
+    for (int price : prices) {
+      minPrice = std::min(minPrice, price);
+      // if price is new minPrice, profit is 0 -> does not affect best
+      best = std::max(best, price - minPrice);
     }
 
-    return std::max(currentMaxProfit, 0);
+    return best;
   }
 };
 
