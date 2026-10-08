@@ -1,9 +1,8 @@
 // 567. Permutation in String
 // https://leetcode.com/problems/permutation-in-string/
 
+#include <array>
 #include <string>
-#include <string_view>
-#include <unordered_map>
 
 #include "include/leetcode.hpp"
 
@@ -14,20 +13,34 @@ class Solution {
     const int n = static_cast<int>(s2.size());
     if (m > n) return false;
 
-    std::unordered_map<char, int> permutation;
-    for (char c : s1) ++permutation[c];
+    std::array<int, 26> permutation{};
+    for (char c : s1) ++permutation[c - 'a'];
 
-    std::unordered_map<char, int> window;
-    for (int i = 0; i < m; ++i) ++window[s2[i]];
-    if (permutation == window) return true;
+    std::array<int, 26> window{};
+    for (int i = 0; i < m; ++i) ++window[s2[i] - 'a'];
+
+    int matches = 0;
+    for (int i = 0; i < 26; ++i)
+      if (window[i] == permutation[i]) ++matches;
+    if (matches == 26) return true;
 
     for (int right = m; right < n; ++right) {
-      int left = right - m;
+      int in = s2[right] - 'a';
+      int out = s2[right - m] - 'a';
 
-      ++window[s2[right]];
-      if (--window[s2[left]] == 0) window.erase(s2[left]);
+      ++window[in];
+      if (window[in] == permutation[in])
+        ++matches;
+      else if (window[in] == permutation[in] + 1)
+        --matches;
 
-      if (permutation == window) return true;
+      --window[out];
+      if (window[out] == permutation[out])
+        ++matches;
+      else if (window[out] == permutation[out] - 1)
+        --matches;
+
+      if (matches == 26) return true;
     }
 
     return false;
@@ -36,6 +49,6 @@ class Solution {
 
 int main() {
   Solution s;
-  test(s.checkInclusion("ab", "eidooba"), true);
+  test(s.checkInclusion("ab", "eidbaoo"), true);
   test(s.checkInclusion("ab", "eidboaoo"), false);
 }
