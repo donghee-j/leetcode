@@ -5,7 +5,7 @@
 #include <string>
 #include <unordered_map>
 
-#include "include/leetcode.hpp"
+#include "leetcode.hpp"
 
 class Solution {
  public:

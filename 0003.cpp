@@ -6,7 +6,7 @@
 #include <string>
 #include <unordered_set>
 
-#include "include/leetcode.hpp"
+#include "leetcode.hpp"
 
 class Solution {
  public:

@@ -4,7 +4,7 @@
 #include <array>
 #include <string_view>
 
-#include "include/leetcode.hpp"
+#include "leetcode.hpp"
 
 class Solution {
  public:
