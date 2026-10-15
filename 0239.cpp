@@ -10,22 +10,20 @@ class Solution {
  public:
   std::vector<int> maxSlidingWindow(const std::vector<int>& nums, int k) {
     const int n = static_cast<int>(nums.size());
-    std::vector<int> max_window;
-    std::deque<int> max_idx;
+    std::vector<int> maxima;
+    std::deque<int> dq;
 
     for (int right = 0; right < n; ++right) {
-      if (!max_idx.empty() && max_idx.front() < right - k + 1)
-        max_idx.pop_front();
+      if (!dq.empty() && dq.front() < right - k + 1) dq.pop_front();
 
-      while (!max_idx.empty() && nums[max_idx.back()] <= nums[right])
-        max_idx.pop_back();
+      while (!dq.empty() && nums[dq.back()] <= nums[right]) dq.pop_back();
 
-      max_idx.push_back(right);
+      dq.push_back(right);
 
-      if (right >= k - 1) max_window.push_back(nums[max_idx.front()]);
+      if (right >= k - 1) maxima.push_back(nums[dq.front()]);
     }
 
-    return max_window;
+    return maxima;
   }
 };
 
