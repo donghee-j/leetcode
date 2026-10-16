@@ -10,23 +10,33 @@ class Solution {
  public:
   std::vector<std::string> generateParenthesis(int n) {
     std::vector<std::string> results;
+    std::string current;
+    current.reserve(2 * n);
 
-    parenthesis("", 0, 0, n, results);
+    parenthesis(current, 0, 0, n, results);
 
     return results;
   }
 
  private:
-  static void parenthesis(std::string current, int open, int close, int n,
+  static void parenthesis(std::string& current, int open, int close, int n,
                           std::vector<std::string>& results) {
     if (close == n) {
       results.push_back(current);
       return;
     }
 
-    if (open < n) parenthesis(current + "(", open + 1, close, n, results);
+    if (open < n) {
+      current.push_back('(');
+      parenthesis(current, open + 1, close, n, results);
+      current.pop_back();
+    }
 
-    if (close < open) parenthesis(current + ")", open, close + 1, n, results);
+    if (close < open) {
+      current.push_back(')');
+      parenthesis(current, open, close + 1, n, results);
+      current.pop_back();
+    }
   }
 };
 
