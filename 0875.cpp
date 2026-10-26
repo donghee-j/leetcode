@@ -14,9 +14,12 @@ class Solution {
 
     auto can_finish = [&](int k) {
       int total = 0;
-      for (int pile : piles) total += (pile + k - 1) / k;
+      for (int pile : piles) {
+        total += (pile + k - 1) / k;
+        if (total > h) return false;
+      }
 
-      return total <= h;
+      return true;
     };
 
     while (left < right) {
