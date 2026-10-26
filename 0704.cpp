@@ -11,7 +11,7 @@ class Solution {
     int left = 0;
     int right = static_cast<int>(nums.size());
     while (left < right) {
-      const int mid = (left + right) / 2;
+      const int mid = left + (right - left) / 2;
 
       if (nums[mid] == target)
         return mid;
