@@ -16,7 +16,7 @@ class Solution {
     std::vector<int> right(n, n);
 
     for (int i = 0; i < n; ++i) {
-      while (!stack_r.empty() && heights[stack_r.top()] >= heights[i]) {
+      while (!stack_r.empty() && heights[stack_r.top()] > heights[i]) {
         right[stack_r.top()] = i;
         stack_r.pop();
       }
