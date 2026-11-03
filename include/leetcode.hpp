@@ -1,7 +1,15 @@
 #pragma once
 #include <initializer_list>
 #include <iostream>
+#include <optional>
+#include <queue>
 #include <vector>
+
+template <typename T>
+std::ostream& operator<<(std::ostream& os, const std::optional<T>& opt) {
+  if (opt.has_value()) return os << *opt;
+  return os << "null";
+}
 
 // print vector
 template <typename T>
@@ -65,5 +73,83 @@ std::vector<int> to_vector(ListNode* head) {
     cur = cur->next;
   }
 
+  return vals;
+}
+
+struct TreeNode {
+  int val;
+  TreeNode* left;
+  TreeNode* right;
+
+  TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  TreeNode(int x, TreeNode* left, TreeNode* right)
+      : val(x), left(left), right(right) {}
+};
+
+TreeNode* make_tree(std::initializer_list<std::optional<int>> vals) {
+  if (vals.size() == 0) return nullptr;
+
+  auto it = vals.begin();
+  auto end = vals.end();
+
+  TreeNode* root = new TreeNode(vals.begin()->value());
+  ++it;
+
+  std::queue<TreeNode*> q;
+  q.push(root);
+
+  while (!q.empty() && it != end) {
+    TreeNode* node = q.front();
+    q.pop();
+
+    if (it->has_value()) {
+      node->left = new TreeNode(**it);
+      q.push(node->left);
+    }
+    ++it;
+
+    if (it != end) {
+      if (it->has_value()) {
+        node->right = new TreeNode(**it);
+        q.push(node->right);
+      }
+      ++it;
+    }
+  }
+
+  return root;
+}
+
+void free_tree(TreeNode* root) {
+  if (root == nullptr) return;
+
+  free_tree(root->left);
+  free_tree(root->right);
+  delete root;
+}
+
+std::vector<std::optional<int>> to_vector(TreeNode* root) {
+  if (root == nullptr) return {};
+
+  std::vector<std::optional<int>> vals;
+  std::queue<TreeNode*> q;
+  q.push(root);
+
+  while (!q.empty()) {
+    TreeNode* node = q.front();
+    q.pop();
+
+    if (node == nullptr) {
+      vals.push_back(std::nullopt);
+      continue;
+    }
+
+    vals.push_back(node->val);
+    q.push(node->left);
+    q.push(node->right);
+  }
+
+  while (!vals.empty() && !vals.back().has_value()) vals.pop_back();
   return vals;
 }
