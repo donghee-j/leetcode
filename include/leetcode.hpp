@@ -129,6 +129,14 @@ void free_tree(TreeNode* root) {
   delete root;
 }
 
+TreeNode* find_node(TreeNode* root, int val) {
+  if (root == nullptr) return nullptr;
+  if (root->val == val) return root;
+
+  TreeNode* left = find_node(root->left, val);
+  return left != nullptr ? left : find_node(root->right, val);
+}
+
 std::vector<std::optional<int>> to_vector(TreeNode* root) {
   if (root == nullptr) return {};
 
