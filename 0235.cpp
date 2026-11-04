@@ -9,16 +9,19 @@
 class Solution {
  public:
   TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-    if (root == nullptr) return nullptr;
-
-    const int val = root->val;
     const int a = std::min(p->val, q->val);
     const int b = std::max(p->val, q->val);
 
-    if (b < val) return lowestCommonAncestor(root->left, p, q);
-    if (a > val) return lowestCommonAncestor(root->right, p, q);
+    while (root != nullptr) {
+      if (b < root->val)
+        root = root->left;
+      else if (a > root->val)
+        root = root->right;
+      else
+        return root;
+    }
 
-    return root;
+    return nullptr;
   }
 };
 
