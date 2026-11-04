@@ -3,6 +3,7 @@
 #include <iostream>
 #include <optional>
 #include <queue>
+#include <type_traits>
 #include <vector>
 
 template <typename T>
@@ -24,9 +25,8 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T>& v) {
   return os;
 }
 
-// test
-template <typename T, typename U>
-void test(const T& got, const U& expected) {
+template <typename T>
+void test(const T& got, const std::type_identity_t<T>& expected) {
   std::cout << std::boolalpha << "[" << (got == expected ? "PASS" : "FAIL")
             << "] "
             << "expected " << expected << ", "
