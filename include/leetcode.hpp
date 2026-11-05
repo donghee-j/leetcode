@@ -1,9 +1,11 @@
 #pragma once
+#include <algorithm>
 #include <initializer_list>
 #include <iostream>
 #include <optional>
 #include <queue>
 #include <type_traits>
+#include <utility>
 #include <vector>
 
 template <typename T>
@@ -31,6 +33,20 @@ void test(const T& got, const std::type_identity_t<T>& expected) {
             << "] "
             << "expected " << expected << ", "
             << "got " << got << "\n";
+}
+
+// sort results when a problem accepts answers in any order
+template <typename T>
+std::vector<T> sorted(std::vector<T> v) {
+  std::ranges::sort(v);
+  return v;
+}
+
+template <typename T>
+std::vector<std::vector<T>> sorted(std::vector<std::vector<T>> v) {
+  for (auto& inner : v) inner = sorted(std::move(inner));
+  std::ranges::sort(v);
+  return v;
 }
 
 struct ListNode {
