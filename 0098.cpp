@@ -2,30 +2,24 @@
 // https://leetcode.com/problems/validate-binary-search-tree/
 
 #include <optional>
-#include <vector>
 
 #include "leetcode.hpp"
 
 class Solution {
  public:
   bool isValidBST(TreeNode* root) {
-    std::vector<int> vals;
-    inorder(root, vals);
-
-    for (int i = 0; i + 1 < static_cast<int>(vals.size()); ++i) {
-      if (vals[i] >= vals[i + 1]) return false;
-    }
-
-    return true;
+    TreeNode* prev = nullptr;
+    return inorder(root, prev);
   }
 
  private:
-  static void inorder(TreeNode* root, std::vector<int>& vals) {
-    if (root == nullptr) return;
+  static bool inorder(TreeNode* node, TreeNode*& prev) {
+    if (node == nullptr) return true;
 
-    inorder(root->left, vals);
-    vals.push_back(root->val);
-    inorder(root->right, vals);
+    if (!inorder(node->left, prev)) return false;
+    if (prev != nullptr && prev->val >= node->val) return false;
+    prev = node;
+    return inorder(node->right, prev);
   }
 };
 
