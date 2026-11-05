@@ -50,9 +50,9 @@ int main() {
   ListNode* list3_2 = make_list({0});
   ListNode* merged3 = s.mergeTwoLists(list3_1, list3_2);
 
-  test(to_vector(merged1), std::vector<int>{1, 1, 2, 3, 4, 4});
-  test(to_vector(merged2), std::vector<int>{});
-  test(to_vector(merged3), std::vector<int>{0});
+  test(to_vector(merged1), {1, 1, 2, 3, 4, 4});
+  test(to_vector(merged2), {});
+  test(to_vector(merged3), {0});
 
   free_list(merged1);
   free_list(merged2);

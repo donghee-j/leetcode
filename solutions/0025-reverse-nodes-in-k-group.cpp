@@ -47,8 +47,8 @@ int main() {
   ListNode* reversed1 = s.reverseKGroup(make_list({1, 2, 3, 4, 5}), 2);
   ListNode* reversed2 = s.reverseKGroup(make_list({1, 2, 3, 4, 5}), 3);
 
-  test(to_vector(reversed1), std::vector<int>{2, 1, 4, 3, 5});
-  test(to_vector(reversed2), std::vector<int>{3, 2, 1, 4, 5});
+  test(to_vector(reversed1), {2, 1, 4, 3, 5});
+  test(to_vector(reversed2), {3, 2, 1, 4, 5});
 
   free_list(reversed1);
   free_list(reversed2);

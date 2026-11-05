@@ -4,8 +4,7 @@
 #include <iostream>
 #include <vector>
 
-void test(const std::vector<int>& numbers, int target,
-          const std::vector<int>& expected);
+#include "leetcode.hpp"
 
 class Solution {
  public:
@@ -29,22 +28,8 @@ class Solution {
 };
 
 int main() {
-  // Test cases
-  test({2, 7, 11, 15}, 9, {1, 2});
-  test({2, 3, 4}, 6, {1, 3});
-  test({-1, 0}, -1, {1, 2});
-
-  return 0;
-}
-
-void test(const std::vector<int>& numbers, int target,
-          const std::vector<int>& expected) {
   Solution s;
-  std::vector<int> got = s.twoSum(numbers, target);
-  std::cout << (got == expected ? "PASS" : "FAIL");
-  std::cout << " expected: ";
-  for (int x : expected) std::cout << x << " ";
-  std::cout << " got: ";
-  for (int x : got) std::cout << x << " ";
-  std::cout << "\n";
+  test(s.twoSum({2, 7, 11, 15}, 9), {1, 2});
+  test(s.twoSum({2, 3, 4}, 6), {1, 3});
+  test(s.twoSum({-1, 0}, -1), {1, 2});
 }

@@ -37,9 +37,7 @@ class Solution {
 
 int main() {
   Solution s;
-  test<std::vector<int>, std::vector<int>>(
-      s.topKFrequent({1, 1, 1, 2, 2, 3}, 2), {1, 2});
-  test<std::vector<int>, std::vector<int>>(s.topKFrequent({1}, 1), {1});
-  test<std::vector<int>, std::vector<int>>(
-      s.topKFrequent({1, 2, 1, 2, 1, 2, 3, 1, 3, 2}, 2), {1, 2});
+  test(sorted(s.topKFrequent({1, 1, 1, 2, 2, 3}, 2)), {1, 2});
+  test(sorted(s.topKFrequent({1}, 1)), {1});
+  test(sorted(s.topKFrequent({1, 2, 1, 2, 1, 2, 3, 1, 3, 2}, 2)), {1, 2});
 }

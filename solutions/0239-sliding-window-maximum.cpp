@@ -29,7 +29,6 @@ class Solution {
 
 int main() {
   Solution s;
-  test(s.maxSlidingWindow({1, 3, -1, -3, 5, 3, 6, 7}, 3),
-       std::vector<int>{3, 3, 5, 5, 6, 7});
-  test(s.maxSlidingWindow({1}, 1), std::vector<int>{1});
+  test(s.maxSlidingWindow({1, 3, -1, -3, 5, 3, 6, 7}, 3), {3, 3, 5, 5, 6, 7});
+  test(s.maxSlidingWindow({1}, 1), {1});
 }

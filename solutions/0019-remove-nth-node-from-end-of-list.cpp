@@ -38,9 +38,9 @@ int main() {
   ListNode* removed2 = s.removeNthFromEnd(list2, 1);
   ListNode* removed3 = s.removeNthFromEnd(list3, 1);
 
-  test(to_vector(removed1), std::vector<int>{1, 2, 3, 5});
-  test(to_vector(removed2), std::vector<int>{});
-  test(to_vector(removed3), std::vector<int>{1});
+  test(to_vector(removed1), {1, 2, 3, 5});
+  test(to_vector(removed2), {});
+  test(to_vector(removed3), {1});
 
   free_list(removed1);
   free_list(removed2);

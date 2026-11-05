@@ -57,9 +57,9 @@ int main() {
   ListNode* merged2 = s.mergeKLists({});
   ListNode* merged3 = s.mergeKLists({make_list({})});
 
-  test(to_vector(merged1), std::vector<int>{1, 1, 2, 3, 4, 4, 5, 6});
-  test(to_vector(merged2), std::vector<int>{});
-  test(to_vector(merged3), std::vector<int>{});
+  test(to_vector(merged1), {1, 1, 2, 3, 4, 4, 5, 6});
+  test(to_vector(merged2), {});
+  test(to_vector(merged3), {});
 
   free_list(merged1);
   free_list(merged2);

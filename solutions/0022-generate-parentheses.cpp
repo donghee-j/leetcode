@@ -43,7 +43,6 @@ class Solution {
 int main() {
   Solution s;
   test(s.generateParenthesis(3),
-       std::vector<std::string>{"((()))", "(()())", "(())()", "()(())",
-                                "()()()"});
-  test(s.generateParenthesis(1), std::vector<std::string>{"()"});
+       {"((()))", "(()())", "(())()", "()(())", "()()()"});
+  test(s.generateParenthesis(1), {"()"});
 }

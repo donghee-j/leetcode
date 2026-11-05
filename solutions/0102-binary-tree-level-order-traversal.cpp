@@ -44,10 +44,9 @@ int main() {
   TreeNode* tree2 = make_tree({1});
   TreeNode* tree3 = make_tree({});
 
-  test(s.levelOrder(tree1),
-       std::vector<std::vector<int>>{{3}, {9, 20}, {15, 7}});
-  test(s.levelOrder(tree2), std::vector<std::vector<int>>{{1}});
-  test(s.levelOrder(tree3), std::vector<std::vector<int>>{});
+  test(s.levelOrder(tree1), {{3}, {9, 20}, {15, 7}});
+  test(s.levelOrder(tree2), {{1}});
+  test(s.levelOrder(tree3), {});
 
   for (TreeNode* t : {tree1, tree2, tree3}) free_tree(t);
 }

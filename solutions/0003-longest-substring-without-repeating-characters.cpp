@@ -31,10 +31,7 @@ class Solution {
 
 int main() {
   Solution s;
-
   test(s.lengthOfLongestSubstring("abcabcbb"), 3);
   test(s.lengthOfLongestSubstring("bbbbb"), 1);
   test(s.lengthOfLongestSubstring("pwwkew"), 3);
-
-  return 0;
 }

@@ -29,11 +29,8 @@ class Solution {
 
 int main() {
   Solution s;
-  test<std::vector<int>, std::vector<int>>(
-      s.dailyTemperatures({73, 74, 75, 71, 69, 72, 76, 73}),
-      {1, 1, 4, 2, 1, 1, 0, 0});
-  test<std::vector<int>, std::vector<int>>(
-      s.dailyTemperatures({30, 40, 50, 60}), {1, 1, 1, 0});
-  test<std::vector<int>, std::vector<int>>(
-      s.dailyTemperatures({30, 20, 30, 20}), {0, 1, 0, 0});
+  test(s.dailyTemperatures({73, 74, 75, 71, 69, 72, 76, 73}),
+       {1, 1, 4, 2, 1, 1, 0, 0});
+  test(s.dailyTemperatures({30, 40, 50, 60}), {1, 1, 1, 0});
+  test(s.dailyTemperatures({30, 20, 30, 20}), {0, 1, 0, 0});
 }

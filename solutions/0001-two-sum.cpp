@@ -5,6 +5,8 @@
 #include <unordered_map>
 #include <vector>
 
+#include "leetcode.hpp"
+
 class Solution {
  public:
   std::vector<int> twoSum(std::vector<int> const& nums, int target) {
@@ -29,11 +31,7 @@ class Solution {
 
 int main() {
   Solution s;
-  std::vector<int> nums = {2, 7, 11, 15};
-  int target = 9;
-  std::vector<int> result = s.twoSum(nums, target);
-  for (int x : result) {
-    std::cout << x << " ";
-  }
-  return 0;
+  test(s.twoSum({2, 7, 11, 15}, 9), {0, 1});
+  test(s.twoSum({3, 2, 4}, 6), {1, 2});
+  test(s.twoSum({3, 3}, 6), {0, 1});
 }

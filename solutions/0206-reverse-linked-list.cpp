@@ -26,9 +26,9 @@ int main() {
   ListNode* list2 = make_list({1, 2});
   ListNode* list3 = make_list({});
 
-  test(to_vector(s.reverseList(list1)), std::vector<int>{5, 4, 3, 2, 1});
-  test(to_vector(s.reverseList(list2)), std::vector<int>{2, 1});
-  test(to_vector(s.reverseList(list3)), std::vector<int>{});
+  test(to_vector(s.reverseList(list1)), {5, 4, 3, 2, 1});
+  test(to_vector(s.reverseList(list2)), {2, 1});
+  test(to_vector(s.reverseList(list3)), {});
 
   free_list(list1);
   free_list(list2);
