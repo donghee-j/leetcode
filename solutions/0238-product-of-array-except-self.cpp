@@ -4,6 +4,7 @@
 
 #include <vector>
 
+#include "leetcode.hpp"
 class Solution {
  public:
   std::vector<int> productExceptSelf(const std::vector<int>& nums) {
@@ -26,4 +27,8 @@ class Solution {
   }
 };
 
-int main() { return 0; }
+int main() {
+  Solution s;
+  test(s.productExceptSelf({1, 2, 3, 4}), {24, 12, 8, 6});
+  test(s.productExceptSelf({-1, 1, 0, -3, 3}), {0, 0, 9, 0, 0});
+}

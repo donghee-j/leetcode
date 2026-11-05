@@ -3,6 +3,8 @@
 
 #include <vector>
 
+#include "leetcode.hpp"
+
 class Solution {
  public:
   std::vector<std::vector<int>> threeSum(const std::vector<int>& nums) {
@@ -51,4 +53,9 @@ class Solution {
   }
 };
 
-int main() { return 0; }
+int main() {
+  Solution s;
+  test(sorted(s.threeSum({-1, 0, 1, 2, -1, -4})), {{-1, -1, 2}, {-1, 0, 1}});
+  test(sorted(s.threeSum({0, 1, 1})), {});
+  test(sorted(s.threeSum({0, 0, 0})), {{0, 0, 0}});
+}

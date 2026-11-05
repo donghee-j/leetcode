@@ -27,4 +27,10 @@ class Solution {
   }
 };
 
-int main() { return 0; }
+int main() {
+  Solution s;
+  test(sorted(s.groupAnagrams({"eat", "tea", "tan", "ate", "nat", "bat"})),
+       {{"ate", "eat", "tea"}, {"bat"}, {"nat", "tan"}});
+  test(sorted(s.groupAnagrams({""})), {{""}});
+  test(sorted(s.groupAnagrams({"a"})), {{"a"}});
+}
