@@ -113,6 +113,8 @@ Provided by `include/leetcode.hpp`.
 | 100 | [Same Tree](https://leetcode.com/problems/same-tree/) | [C++](solutions/0100-same-tree.cpp) | |
 | 102 | [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) | [C++](solutions/0102-binary-tree-level-order-traversal.cpp) | BFS |
 | 104 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [C++](solutions/0104-maximum-depth-of-binary-tree.cpp) | |
+| 105 | [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [C++](solutions/0105-construct-binary-tree-from-preorder-and-inorder-traversal.cpp) | preorder |
+| 124 | [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | [C++](solutions/0124-binary-tree-maximum-path-sum.cpp) | |
 | 199 | [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) | [C++](solutions/0199-binary-tree-right-side-view.cpp) | BFS |
 | 226 | [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) | [C++](solutions/0226-invert-binary-tree.cpp) | |
 | 230 | [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [C++](solutions/0230-kth-smallest-element-in-a-bst.cpp) | inorder |
