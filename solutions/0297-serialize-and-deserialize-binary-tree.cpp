@@ -12,42 +12,7 @@
 class Codec {
  public:
   std::string serialize(TreeNode* root) const {
-    const std::vector<std::optional<int>> vals = to_vector(root);
-    std::string serial;
-
-    for (auto val : vals) {
-      if (val.has_value())
-        serial.append(std::to_string(val.value()));
-      else
-        serial.append("null");
-      serial.push_back(delimiter);
-    }
-
-    return serial;
-  }
-
-  TreeNode* deserialize(const std::string& data) const {
-    std::vector<std::optional<int>> vals;
-    std::stringstream ss(data);
-    std::string val;
-
-    while (std::getline(ss, val, delimiter)) {
-      if (val != "null")
-        vals.push_back(std::stoi(val));
-      else
-        vals.push_back(std::nullopt);
-    }
-
-    return make_tree(vals);
-  }
-
- private:
-  const char delimiter = ' ';
-
-  static std::vector<std::optional<int>> to_vector(TreeNode* root) {
-    if (root == nullptr) return {};
-
-    std::vector<std::optional<int>> vals;
+    std::ostringstream out;
     std::queue<TreeNode*> q;
     q.push(root);
 
@@ -55,57 +20,52 @@ class Codec {
       TreeNode* node = q.front();
       q.pop();
 
-      if (node != nullptr) {
-        vals.push_back(node->val);
-        q.push(node->left);
-        q.push(node->right);
-      } else
-        vals.push_back(std::nullopt);
+      if (node == nullptr) {
+        out << "null ";
+        continue;
+      }
+
+      out << node->val << " ";
+      q.push(node->left);
+      q.push(node->right);
     }
 
-    while (!vals.empty() && !vals.back().has_value()) vals.pop_back();
-
-    return vals;
+    return out.str();
   }
 
-  static TreeNode* make_tree(const std::vector<std::optional<int>>& vals) {
-    if (vals.empty() || !vals[0]) return nullptr;
+  TreeNode* deserialize(const std::string& data) const {
+    std::istringstream in(data);
 
-    auto it = vals.begin();
-    auto end = vals.end();
-
-    TreeNode* root = new TreeNode(it->value());
-    ++it;
+    TreeNode* root = read_node(in);
+    if (root == nullptr) return nullptr;
 
     std::queue<TreeNode*> q;
     q.push(root);
 
-    while (!q.empty() && it != end) {
+    while (!q.empty()) {
       TreeNode* node = q.front();
       q.pop();
 
-      if (it->has_value()) {
-        node->left = new TreeNode(it->value());
-        q.push(node->left);
-      }
-      ++it;
+      node->left = read_node(in);
+      if (node->left != nullptr) q.push(node->left);
 
-      if (it != end) {
-        if (it->has_value()) {
-          node->right = new TreeNode(it->value());
-          q.push(node->right);
-        }
-        ++it;
-      }
+      node->right = read_node(in);
+      if (node->right != nullptr) q.push(node->right);
     }
 
     return root;
+  }
+
+ private:
+  static TreeNode* read_node(std::istringstream& in) {
+    std::string token;
+    if (!(in >> token) || token == "null") return nullptr;
+    return new TreeNode(std::stoi(token));
   }
 };
 
 int main() {
   Codec c;
-
   TreeNode* tree1 = make_tree({1, 2, 3, std::nullopt, std::nullopt, 4, 5});
   TreeNode* result1 = c.deserialize(c.serialize(tree1));
   TreeNode* tree2 = make_tree({});
