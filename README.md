@@ -123,6 +123,12 @@ Provided by `include/leetcode.hpp`.
 | 572  | [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/)                                                                     | [C++](solutions/0572-subtree-of-another-tree.cpp)                                   |          |
 | 1448 | [Count Good Nodes in Binary Tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/)                                                     | [C++](solutions/1448-count-good-nodes-in-binary-tree.cpp)                           |          |
 
+### Heap & Priority Queue
+
+| #   | Problem                                                                                           | Solution                                                  | Tags |
+| --- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ---- |
+| 709 | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) | [C++](solutions/0709-kth-largest-element-in-a-stream.cpp) |      |
+
 ### Other
 
 | #   | Problem                                                                                           | Solution                                                  | Tags      |
