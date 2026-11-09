@@ -13,54 +13,39 @@ class Codec {
  public:
   std::string serialize(TreeNode* root) const {
     std::ostringstream out;
-    std::queue<TreeNode*> q;
-    q.push(root);
-
-    while (!q.empty()) {
-      TreeNode* node = q.front();
-      q.pop();
-
-      if (node == nullptr) {
-        out << "null ";
-        continue;
-      }
-
-      out << node->val << " ";
-      q.push(node->left);
-      q.push(node->right);
-    }
+    dfs(root, out);
 
     return out.str();
   }
 
   TreeNode* deserialize(const std::string& data) const {
     std::istringstream in(data);
-
-    TreeNode* root = read_node(in);
-    if (root == nullptr) return nullptr;
-
-    std::queue<TreeNode*> q;
-    q.push(root);
-
-    while (!q.empty()) {
-      TreeNode* node = q.front();
-      q.pop();
-
-      node->left = read_node(in);
-      if (node->left != nullptr) q.push(node->left);
-
-      node->right = read_node(in);
-      if (node->right != nullptr) q.push(node->right);
-    }
-
-    return root;
+    return build(in);
   }
 
  private:
-  static TreeNode* read_node(std::istringstream& in) {
+  static void dfs(TreeNode* node, std::ostringstream& out) {
+    if (node == nullptr) {
+      out << "null ";
+      return;
+    }
+
+    out << node->val << " ";
+
+    dfs(node->left, out);
+    dfs(node->right, out);
+  }
+
+  static TreeNode* build(std::istringstream& in) {
     std::string token;
     if (!(in >> token) || token == "null") return nullptr;
-    return new TreeNode(std::stoi(token));
+
+    TreeNode* node = new TreeNode(std::stoi(token));
+
+    node->left = build(in);
+    node->right = build(in);
+
+    return node;
   }
 };
 
