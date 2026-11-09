@@ -2,7 +2,6 @@
 // https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
 
 #include <optional>
-#include <queue>
 #include <sstream>
 #include <string>
 #include <vector>
