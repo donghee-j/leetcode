@@ -1,8 +1,9 @@
 // 621. Task Scheduler
 // https://leetcode.com/problems/task-scheduler/
 
-#include <algorithm>
 #include <array>
+#include <queue>
+#include <utility>
 #include <vector>
 
 #include "leetcode.hpp"
@@ -10,15 +11,35 @@
 class Solution {
  public:
   int leastInterval(const std::vector<char>& tasks, int n) {
+    int time = 0;
+    std::queue<std::pair<int, int>> cooling;  // remaining, ready_time
+    std::priority_queue<int> available;       // remaining
+
     std::array<int, 26> freq{};
-    for (char c : tasks) ++freq[c - 'A'];
+    for (char t : tasks) ++freq[t - 'A'];
+    for (int c : freq) {
+      if (c > 0) available.push(c);
+    }
 
-    const int max_count = std::ranges::max(freq);
-    const int count_of_max =
-        static_cast<int>(std::ranges::count(freq, max_count));
+    while (true) {
+      while (!cooling.empty() && cooling.front().second <= time) {
+        available.push(cooling.front().first);
+        cooling.pop();
+      }
 
-    return std::max(static_cast<int>(tasks.size()),
-                    (max_count - 1) * (n + 1) + count_of_max);
+      if (available.empty() && cooling.empty()) break;
+
+      if (available.empty())
+        time = cooling.front().second;
+      else {
+        int remaining = available.top() - 1;
+        if (remaining > 0) cooling.emplace(remaining, time + n + 1);
+        available.pop();
+        ++time;
+      }
+    }
+
+    return time;
   }
 };
 

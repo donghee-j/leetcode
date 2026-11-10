@@ -125,11 +125,12 @@ Provided by `include/leetcode.hpp`.
 
 ### Heap & Priority Queue
 
-| #    | Problem                                                                                           | Solution                                                  | Tags |
-| ---- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ---- |
-| 709  | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) | [C++](solutions/0709-kth-largest-element-in-a-stream.cpp) |      |
-| 973  | [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)           | [C++](solutions/0973-k-closest-points-to-origin.cpp)      |      |
-| 1046 | [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)                             | [C++](solutions/1046-last-stone-weight.cpp)               |      |
+| #    | Problem                                                                                           | Solution                                                  | Tags  |
+| ---- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ----- |
+| 621  | [Task Scheduler](https://leetcode.com/problems/task-scheduler/)                                   | [C++](solutions/0621-task-scheduler.cpp)                  | array |
+| 709  | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) | [C++](solutions/0709-kth-largest-element-in-a-stream.cpp) |       |
+| 973  | [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)           | [C++](solutions/0973-k-closest-points-to-origin.cpp)      |       |
+| 1046 | [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)                             | [C++](solutions/1046-last-stone-weight.cpp)               |       |
 
 ### Other
 
