@@ -127,6 +127,7 @@ Provided by `include/leetcode.hpp`.
 
 | #    | Problem                                                                                           | Solution                                                  | Tags  |
 | ---- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ----- |
+| 295  | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)       | [C++](solutions/0295-find-median-from-data-stream.cpp)    |       |
 | 355  | [Design Twitter](https://leetcode.com/problems/design-twitter/)                                   | [C++](solutions/0355-design-twitter.cpp)                  |       |
 | 621  | [Task Scheduler](https://leetcode.com/problems/task-scheduler/)                                   | [C++](solutions/0621-task-scheduler.cpp)                  | array |
 | 709  | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) | [C++](solutions/0709-kth-largest-element-in-a-stream.cpp) |       |
