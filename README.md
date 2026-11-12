@@ -127,6 +127,7 @@ Provided by `include/leetcode.hpp`.
 
 | #    | Problem                                                                                           | Solution                                                  | Tags  |
 | ---- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ----- |
+| 355  | [Design Twitter](https://leetcode.com/problems/design-twitter/)                                   | [C++](solutions/0355-design-twitter.cpp)                  |       |
 | 621  | [Task Scheduler](https://leetcode.com/problems/task-scheduler/)                                   | [C++](solutions/0621-task-scheduler.cpp)                  | array |
 | 709  | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) | [C++](solutions/0709-kth-largest-element-in-a-stream.cpp) |       |
 | 973  | [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)           | [C++](solutions/0973-k-closest-points-to-origin.cpp)      |       |
