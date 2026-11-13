@@ -44,8 +44,13 @@ std::vector<T> sorted(std::vector<T> v) {
 
 template <typename T>
 std::vector<std::vector<T>> sorted(std::vector<std::vector<T>> v) {
-  for (auto& inner : v) inner = sorted(std::move(inner));
-  std::ranges::sort(v);
+  for (auto& inner : v) std::ranges::sort(inner);
+
+  std::ranges::sort(v, [](const auto& a, const auto& b) {
+    if (a.size() != b.size()) return a.size() < b.size();
+    return a < b;
+  });
+
   return v;
 }
 

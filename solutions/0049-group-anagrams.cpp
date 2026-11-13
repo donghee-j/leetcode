@@ -30,7 +30,7 @@ class Solution {
 int main() {
   Solution s;
   test(sorted(s.groupAnagrams({"eat", "tea", "tan", "ate", "nat", "bat"})),
-       {{"ate", "eat", "tea"}, {"bat"}, {"nat", "tan"}});
+       {{"bat"}, {"nat", "tan"}, {"ate", "eat", "tea"}});
   test(sorted(s.groupAnagrams({""})), {{""}});
   test(sorted(s.groupAnagrams({"a"})), {{"a"}});
 }
