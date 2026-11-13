@@ -1,7 +1,6 @@
 // 78. Subsets
 // https://leetcode.com/problems/subsets/
 
-#include <utility>
 #include <vector>
 
 #include "leetcode.hpp"
@@ -9,20 +8,30 @@
 class Solution {
  public:
   std::vector<std::vector<int>> subsets(const std::vector<int>& nums) {
+    std::vector<int> subset;
     std::vector<std::vector<int>> powerset;
+    subset.reserve(nums.size());
     powerset.reserve(1 << nums.size());
-    powerset.push_back({});
 
-    for (int num : nums) {
-      const int n = static_cast<int>(powerset.size());
-      for (int i = 0; i < n; ++i) {
-        std::vector<int> subset = powerset[i];
-        subset.push_back(num);
-        powerset.emplace_back(std::move(subset));
-      }
-    }
+    backtrack(nums, 0, subset, powerset);
 
     return powerset;
+  }
+
+ private:
+  static void backtrack(const std::vector<int>& nums, int i,
+                        std::vector<int>& cur,
+                        std::vector<std::vector<int>>& out) {
+    if (i == std::ssize(nums)) {
+      out.push_back(cur);
+      return;
+    }
+
+    cur.push_back(nums[i]);
+    backtrack(nums, i + 1, cur, out);
+
+    cur.pop_back();
+    backtrack(nums, i + 1, cur, out);
   }
 };
 

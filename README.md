@@ -134,9 +134,16 @@ Provided by `include/leetcode.hpp`.
 | 973  | [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)           | [C++](solutions/0973-k-closest-points-to-origin.cpp)      |       |
 | 1046 | [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)                             | [C++](solutions/1046-last-stone-weight.cpp)               |       |
 
+### Backtracking
+
+| #   | Problem                                                                     | Solution                                       | Tags |
+| --- | --------------------------------------------------------------------------- | ---------------------------------------------- | ---- |
+| 22  | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | [C++](solutions/0022-generate-parentheses.cpp) |      |
+| 78  | [Subsets](https://leetcode.com/problems/subsets/)                           | [C++](solutions/0078-subsets.cpp)              |      |
+
 ### Other
 
-| #   | Problem                                                                                           | Solution                                                  | Tags      |
-| --- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | --------- |
-| 22  | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)                       | [C++](solutions/0022-generate-parentheses.cpp)            | recursion |
-| 121 | [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | [C++](solutions/0121-best-time-to-buy-and-sell-stock.cpp) | DP        |
+| #   | Problem | Solution | Tags |
+| --- | ------- | -------- | ---- |
+
+| 121 | [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | [C++](solutions/0121-best-time-to-buy-and-sell-stock.cpp) | DP |
