@@ -7,31 +7,26 @@
 
 class Solution {
  public:
-  std::vector<std::vector<int>> permute(const std::vector<int>& nums) {
-    std::vector<int> cur;
+  std::vector<std::vector<int>> permute(std::vector<int> nums) {
     std::vector<std::vector<int>> result;
-    cur.reserve(nums.size());
 
-    backtrack(nums, 0, cur, result);
+    backtrack(nums, 0, result);
 
     return result;
   }
 
  private:
-  static void backtrack(const std::vector<int>& nums, int used,
-                        std::vector<int>& cur,
+  static void backtrack(std::vector<int>& nums, int start,
                         std::vector<std::vector<int>>& result) {
-    if (cur.size() == nums.size()) {
-      result.push_back(cur);
+    if (start == std::ssize(nums)) {
+      result.push_back(nums);
       return;
     }
 
-    for (int i = 0; i < std::ssize(nums); ++i) {
-      if (used & (1 << i)) continue;
-
-      cur.push_back(nums[i]);
-      backtrack(nums, used | (1 << i), cur, result);
-      cur.pop_back();
+    for (int i = start; i < std::ssize(nums); ++i) {
+      std::swap(nums[start], nums[i]);
+      backtrack(nums, start + 1, result);
+      std::swap(nums[start], nums[i]);
     }
   }
 };
