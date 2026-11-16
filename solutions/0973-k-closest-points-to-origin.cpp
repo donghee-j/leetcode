@@ -41,7 +41,8 @@ int main() {
   Solution s;
   test(s.kClosest({{0, 0}}, 1), {{0, 0}});
   test(s.kClosest({{1, 3}, {-2, 2}}, 1), {{-2, 2}});
-  test(sorted(s.kClosest({{1, 3}, {-2, 2}}, 2)), {{-2, 2}, {1, 3}});
-  test(sorted(s.kClosest({{0, 1}, {0, 1}}, 2)), {{0, 1}, {0, 1}});
-  test(sorted(s.kClosest({{3, 3}, {5, -1}, {-2, 4}}, 2)), {{-2, 4}, {3, 3}});
+  test(sorted_outer(s.kClosest({{1, 3}, {-2, 2}}, 2)), {{-2, 2}, {1, 3}});
+  test(sorted_outer(s.kClosest({{0, 1}, {0, 1}}, 2)), {{0, 1}, {0, 1}});
+  test(sorted_outer(s.kClosest({{3, 3}, {5, -1}, {-2, 4}}, 2)),
+       {{-2, 4}, {3, 3}});
 }

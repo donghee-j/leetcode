@@ -43,15 +43,20 @@ std::vector<T> sorted(std::vector<T> v) {
 }
 
 template <typename T>
-std::vector<std::vector<T>> sorted(std::vector<std::vector<T>> v) {
-  for (auto& inner : v) std::ranges::sort(inner);
-
+std::vector<std::vector<T>> sorted_outer(std::vector<std::vector<T>> v) {
   std::ranges::sort(v, [](const auto& a, const auto& b) {
     if (a.size() != b.size()) return a.size() < b.size();
     return a < b;
   });
 
   return v;
+};
+
+template <typename T>
+std::vector<std::vector<T>> sorted(std::vector<std::vector<T>> v) {
+  for (auto& inner : v) std::ranges::sort(inner);
+
+  return sorted_outer(std::move(v));
 }
 
 struct ListNode {
