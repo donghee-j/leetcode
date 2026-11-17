@@ -2,6 +2,7 @@
 // https://leetcode.com/problems/subsets-ii/
 
 #include <array>
+#include <utility>
 #include <vector>
 
 #include "leetcode.hpp"
@@ -14,10 +15,15 @@ class Solution {
     cur.reserve(nums.size());
     result.reserve(1 << nums.size());
 
-    Freq freq{};  // nums in [min_val, max_val]
+    std::array<int, max_val - min_val + 1>
+        freq{};                               // nums in [min_val, max_val]
+    std::vector<std::pair<int, int>> groups;  // {num, freq}
     for (int n : nums) ++freq[n - min_val];
+    for (int i = 0; i < std::ssize(freq); ++i) {
+      if (freq[i] > 0) groups.emplace_back(min_val + i, freq[i]);
+    }
 
-    backtrack(freq, 0, cur, result);
+    backtrack(groups, 0, cur, result);
 
     return result;
   }
@@ -25,21 +31,23 @@ class Solution {
  private:
   static constexpr int min_val = -10;
   static constexpr int max_val = 10;
-  using Freq = std::array<int, max_val - min_val + 1>;
 
-  static void backtrack(const Freq& freq, int i, std::vector<int>& cur,
+  static void backtrack(const std::vector<std::pair<int, int>>& groups, int i,
+                        std::vector<int>& cur,
                         std::vector<std::vector<int>>& result) {
-    if (i == std::ssize(freq)) {
+    if (i == std::ssize(groups)) {
       result.push_back(cur);
       return;
     }
 
-    backtrack(freq, i + 1, cur, result);
-    for (int j = 0; j < freq[i]; ++j) {
-      cur.push_back(min_val + i);
-      backtrack(freq, i + 1, cur, result);
+    const auto [num, freq] = groups[i];
+
+    backtrack(groups, i + 1, cur, result);
+    for (int j = 0; j < freq; ++j) {
+      cur.push_back(num);
+      backtrack(groups, i + 1, cur, result);
     }
-    cur.resize(cur.size() - freq[i]);
+    cur.resize(cur.size() - freq);
   }
 };
 
