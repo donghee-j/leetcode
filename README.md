@@ -142,6 +142,7 @@ Provided by `include/leetcode.hpp`.
 | 39  | [Combination Sum](https://leetcode.com/problems/combination-sum/)           | [C++](solutions/0039-combination-sum.cpp)      |      |
 | 46  | [Permutations](https://leetcode.com/problems/permutations/)                 | [C++](solutions/0049-group-anagrams.cpp)       |      |
 | 78  | [Subsets](https://leetcode.com/problems/subsets/)                           | [C++](solutions/0078-subsets.cpp)              |      |
+| 90  | [Subsets II](https://leetcode.com/problems/subsets-ii/)                     | [C++](solutions/0090-subsets-ii.cpp)           |      |
 
 ### Other
 
