@@ -143,6 +143,7 @@ Provided by `include/leetcode.hpp`.
 | 40  | [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/)     | [C++](solutions/0040-combination-sum-ii.cpp)   |      |
 | 46  | [Permutations](https://leetcode.com/problems/permutations/)                 | [C++](solutions/0049-group-anagrams.cpp)       |      |
 | 78  | [Subsets](https://leetcode.com/problems/subsets/)                           | [C++](solutions/0078-subsets.cpp)              |      |
+| 79  | [Word Search](https://leetcode.com/problems/word-search/)                   | [C++](solutions/0079-word-search.cpp)          |      |
 | 90  | [Subsets II](https://leetcode.com/problems/subsets-ii/)                     | [C++](solutions/0090-subsets-ii.cpp)           |      |
 
 ### Other
