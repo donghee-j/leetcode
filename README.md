@@ -136,15 +136,16 @@ Provided by `include/leetcode.hpp`.
 
 ### Backtracking
 
-| #   | Problem                                                                     | Solution                                       | Tags |
-| --- | --------------------------------------------------------------------------- | ---------------------------------------------- | ---- |
-| 22  | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | [C++](solutions/0022-generate-parentheses.cpp) |      |
-| 39  | [Combination Sum](https://leetcode.com/problems/combination-sum/)           | [C++](solutions/0039-combination-sum.cpp)      |      |
-| 40  | [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/)     | [C++](solutions/0040-combination-sum-ii.cpp)   |      |
-| 46  | [Permutations](https://leetcode.com/problems/permutations/)                 | [C++](solutions/0049-group-anagrams.cpp)       |      |
-| 78  | [Subsets](https://leetcode.com/problems/subsets/)                           | [C++](solutions/0078-subsets.cpp)              |      |
-| 79  | [Word Search](https://leetcode.com/problems/word-search/)                   | [C++](solutions/0079-word-search.cpp)          |      |
-| 90  | [Subsets II](https://leetcode.com/problems/subsets-ii/)                     | [C++](solutions/0090-subsets-ii.cpp)           |      |
+| #   | Problem                                                                           | Solution                                          | Tags |
+| --- | --------------------------------------------------------------------------------- | ------------------------------------------------- | ---- |
+| 22  | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)       | [C++](solutions/0022-generate-parentheses.cpp)    |      |
+| 39  | [Combination Sum](https://leetcode.com/problems/combination-sum/)                 | [C++](solutions/0039-combination-sum.cpp)         |      |
+| 40  | [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/)           | [C++](solutions/0040-combination-sum-ii.cpp)      |      |
+| 46  | [Permutations](https://leetcode.com/problems/permutations/)                       | [C++](solutions/0049-group-anagrams.cpp)          |      |
+| 78  | [Subsets](https://leetcode.com/problems/subsets/)                                 | [C++](solutions/0078-subsets.cpp)                 |      |
+| 79  | [Word Search](https://leetcode.com/problems/word-search/)                         | [C++](solutions/0079-word-search.cpp)             |      |
+| 90  | [Subsets II](https://leetcode.com/problems/subsets-ii/)                           | [C++](solutions/0090-subsets-ii.cpp)              |      |
+| 131 | [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) | [C++](solutions/0131-palindrome-partitioning.cpp) |      |
 
 ### Other
 
