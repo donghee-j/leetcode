@@ -50,7 +50,7 @@ std::vector<std::vector<T>> sorted_outer(std::vector<std::vector<T>> v) {
   });
 
   return v;
-};
+}
 
 template <typename T>
 std::vector<std::vector<T>> sorted(std::vector<std::vector<T>> v) {
