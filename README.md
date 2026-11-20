@@ -149,6 +149,12 @@ Provided by `include/leetcode.hpp`.
 | 90  | [Subsets II](https://leetcode.com/problems/subsets-ii/)                                                       | [C++](solutions/0090-subsets-ii.cpp)                            |      |
 | 131 | [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)                             | [C++](solutions/0131-palindrome-partitioning.cpp)               |      |
 
+### Graphs
+
+| #   | Problem                                                               | Solution                                    | Tags |
+| --- | --------------------------------------------------------------------- | ------------------------------------------- | ---- |
+| 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) | [C++](solutions/0200-number-of-islands.cpp) | DFS  |
+
 ### Other
 
 | #   | Problem | Solution | Tags |
