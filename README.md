@@ -151,9 +151,9 @@ Provided by `include/leetcode.hpp`.
 
 ### Graphs
 
-| #   | Problem                                                               | Solution                                    | Tags |
-| --- | --------------------------------------------------------------------- | ------------------------------------------- | ---- |
-| 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) | [C++](solutions/0200-number-of-islands.cpp) | DFS  |
+| #   | Problem                                                               | Solution                                    | Tags     |
+| --- | --------------------------------------------------------------------- | ------------------------------------------- | -------- |
+| 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) | [C++](solutions/0200-number-of-islands.cpp) | BFS, DFS |
 
 ### Other
 

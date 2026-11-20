@@ -2,6 +2,7 @@
 // https://leetcode.com/problems/number-of-islands/
 
 #include <array>
+#include <queue>
 #include <utility>
 #include <vector>
 
@@ -31,18 +32,32 @@ class Solution {
   static constexpr std::array<std::pair<int, int>, 4> directions{
       {{0, 1}, {0, -1}, {1, 0}, {-1, 0}}};
 
-  static void flood_fill(int r, int c, std::vector<std::vector<char>>& filled,
+  static void flood_fill(int start_r, int start_c,
+                         std::vector<std::vector<char>>& filled,
                          const std::vector<std::vector<char>>& grid) {
     const int rows = std::ssize(grid);
     const int cols = std::ssize(grid[0]);
 
-    if (r < 0 || r >= rows) return;
-    if (c < 0 || c >= cols) return;
-    if (grid[r][c] == '0' || filled[r][c] != 0) return;
+    std::queue<std::pair<int, int>> land;
+    filled[start_r][start_c] = 1;
+    land.emplace(start_r, start_c);
 
-    filled[r][c] = 1;
-    for (const auto& [dr, dc] : directions)
-      flood_fill(r + dr, c + dc, filled, grid);
+    while (!land.empty()) {
+      const auto [r, c] = land.front();
+      land.pop();
+
+      for (const auto& [dr, dc] : directions) {
+        const int nr = r + dr;
+        const int nc = c + dc;
+
+        if (nr < 0 || nr >= rows) continue;
+        if (nc < 0 || nc >= cols) continue;
+        if (grid[nr][nc] == '0' || filled[nr][nc] == 1) continue;
+
+        filled[nr][nc] = 1;
+        land.emplace(nr, nc);
+      }
+    }
   }
 };
 
