@@ -31,7 +31,7 @@ Provided by `include/leetcode.hpp`.
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `test(got, expected)`                | Compares two values and prints `PASS` or `FAIL`                                                                             |
 | `sorted(v)`                          | Returns a sorted copy of a vector; for nested vectors, also sorts each inner vector, then orders them like `sorted_outer()` |
-| `sorted_outer(v)`                    | Returns a copy of nested vector with only the outer vector sorted, by size then elxicographically                           |
+| `sorted_outer(v)`                    | Returns a copy of a nested vector with only the outer vector sorted, by size then lexicographically                         |
 | `operator<<`                         | Prints `std::vector` and `std::optional`                                                                                    |
 | `ListNode`, `make_list`, `free_list` | Linked list node, creation, and cleanup                                                                                     |
 | `TreeNode`, `make_tree`, `free_tree` | Binary tree node, creation from level-order values, and cleanup                                                             |
