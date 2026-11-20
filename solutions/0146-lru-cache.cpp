@@ -64,10 +64,6 @@ class LRUCache {
   }
 
  private:
-  const int capacity_;
-  Node dummy_head_, dummy_tail_;
-  std::unordered_map<int, Node*> cache_map_;
-
   void detach(Node* node) {
     node->prev->next = node->next;
     node->next->prev = node->prev;
@@ -85,6 +81,10 @@ class LRUCache {
     detach(node);
     append_to_tail(node);
   }
+
+  const int capacity_;
+  Node dummy_head_, dummy_tail_;
+  std::unordered_map<int, Node*> cache_map_;
 };
 
 int main() {

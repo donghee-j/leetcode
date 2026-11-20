@@ -61,9 +61,6 @@ class Twitter {
       std::priority_queue<Tweet, std::vector<Tweet>, std::greater<Tweet>>;
 
   static constexpr size_t feed_size = 10;
-  int time_ = 0;
-  std::unordered_map<int, std::vector<Tweet>> tweets_;
-  std::unordered_map<int, std::unordered_set<int>> following_;
 
   static bool update(Feed& pq, const Tweet& tweet) {
     if (pq.size() == feed_size && tweet.first <= pq.top().first) return false;
@@ -80,6 +77,10 @@ class Twitter {
       if (!update(feed, tweets[i])) break;
     }
   }
+
+  int time_ = 0;
+  std::unordered_map<int, std::vector<Tweet>> tweets_;
+  std::unordered_map<int, std::unordered_set<int>> following_;
 };
 
 int main() {
