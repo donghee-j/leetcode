@@ -1,8 +1,9 @@
 // 146. LRU Cache
 // https://leetcode.com/problems/lru-cache/
 
-#include <iostream>
 #include <unordered_map>
+
+#include "leetcode.hpp"
 
 struct Node {
  public:
@@ -89,13 +90,13 @@ class LRUCache {
 
 int main() {
   LRUCache lRUCache(2);
-  lRUCache.put(1, 1);                    // cache is {1=1}
-  lRUCache.put(2, 2);                    // cache is {1=1, 2=2}
-  std::cout << lRUCache.get(1) << "\n";  // return 1
+  lRUCache.put(1, 1);  // cache is {1=1}
+  lRUCache.put(2, 2);  // cache is {1=1, 2=2}
+  test(lRUCache.get(1), 1);
   lRUCache.put(3, 3);  // LRU key was 2, evicts key 2, cache is {1=1, 3=3}
-  std::cout << lRUCache.get(2) << "\n";  // returns -1 (not found)
+  test(lRUCache.get(2), -1);
   lRUCache.put(4, 4);  // LRU key was 1, evicts key 1, cache is {4=4, 3=3}
-  std::cout << lRUCache.get(1) << "\n";  // return -1 (not found)
-  std::cout << lRUCache.get(3) << "\n";  // return 3
-  std::cout << lRUCache.get(4) << "\n";  // return 4
+  test(lRUCache.get(1), -1);
+  test(lRUCache.get(3), 3);
+  test(lRUCache.get(4), 4);
 }

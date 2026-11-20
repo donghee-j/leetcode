@@ -2,8 +2,9 @@
 // https://leetcode.com/problems/min-stack/
 
 #include <algorithm>
-#include <iostream>
 #include <stack>
+
+#include "leetcode.hpp"
 
 class MinStack {
  public:
@@ -33,8 +34,8 @@ int main() {
   minStack.push(-2);
   minStack.push(0);
   minStack.push(-3);
-  std::cout << minStack.getMin() << "\n";  // return -3
+  test(minStack.getMin(), -3);
   minStack.pop();
-  std::cout << minStack.top() << "\n";     // return 0
-  std::cout << minStack.getMin() << "\n";  // return -2
+  test(minStack.top(), 0);
+  test(minStack.getMin(), -2);
 }

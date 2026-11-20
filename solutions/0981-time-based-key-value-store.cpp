@@ -1,7 +1,6 @@
 // 981. Time Based Key-Value Store
 // https://leetcode.com/problems/time-based-key-value-store/
 
-#include <iostream>
 #include <string>
 #include <unordered_map>
 #include <utility>
@@ -46,9 +45,9 @@ class TimeMap {
 int main() {
   TimeMap obj;
   obj.set("foo", "bar", 1);
-  std::cout << obj.get("foo", 1) << "\n";  // return "bar"
-  std::cout << obj.get("foo", 3) << "\n";  // return "bar"
+  test(obj.get("foo", 1), "bar");
+  test(obj.get("foo", 3), "bar");
   obj.set("foo", "bar2", 4);
-  std::cout << obj.get("foo", 4) << "\n";  // return "bar2"
-  std::cout << obj.get("foo", 5) << "\n";  // return "bar2"
+  test(obj.get("foo", 4), "bar2");
+  test(obj.get("foo", 5), "bar2");
 }
