@@ -152,9 +152,10 @@ Provided by `include/leetcode.hpp`.
 
 ### Graphs
 
-| #   | Problem                                                               | Solution                                    | Tags     |
-| --- | --------------------------------------------------------------------- | ------------------------------------------- | -------- |
-| 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) | [C++](solutions/0200-number-of-islands.cpp) | BFS, DFS |
+| #   | Problem                                                                 | Solution                                     | Tags     |
+| --- | ----------------------------------------------------------------------- | -------------------------------------------- | -------- |
+| 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/)   | [C++](solutions/0200-number-of-islands.cpp)  | BFS, DFS |
+| 695 | [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) | [C++](solutions/0695-max-area-of-island.cpp) | DFS      |
 
 ### Other
 
