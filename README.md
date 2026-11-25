@@ -152,11 +152,12 @@ Provided by `include/leetcode.hpp`.
 
 ### Graphs
 
-| #   | Problem                                                                 | Solution                                     | Tags     |
-| --- | ----------------------------------------------------------------------- | -------------------------------------------- | -------- |
-| 133 | [Clone Graph](https://leetcode.com/problems/clone-graph/)               | [C++](solutions/0133-clone-graph.cpp)        |          |
-| 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/)   | [C++](solutions/0200-number-of-islands.cpp)  | BFS, DFS |
-| 695 | [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) | [C++](solutions/0695-max-area-of-island.cpp) | DFS      |
+| #   | Problem                                                                 | Solution                                     | Tags             |
+| --- | ----------------------------------------------------------------------- | -------------------------------------------- | ---------------- |
+| 133 | [Clone Graph](https://leetcode.com/problems/clone-graph/)               | [C++](solutions/0133-clone-graph.cpp)        |                  |
+| 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/)   | [C++](solutions/0200-number-of-islands.cpp)  | BFS, DFS         |
+| 695 | [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) | [C++](solutions/0695-max-area-of-island.cpp) | DFS              |
+| 994 | [Rotting Oranges](leetcode.com/problems/rotting-oranges/)               | [C++](solutions/0994-rotting-oranges.cpp)    | multi-source BFS |
 
 ### Other
 
