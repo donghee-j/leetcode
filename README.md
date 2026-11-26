@@ -154,6 +154,7 @@ Provided by `include/leetcode.hpp`.
 
 | #   | Problem                                                                                   | Solution                                              | Tags             |
 | --- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------- | ---------------- |
+| 130 | [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)                   | [C++](solutions/0130-surrounded-regions.cpp)          | BFS              |
 | 133 | [Clone Graph](https://leetcode.com/problems/clone-graph/)                                 | [C++](solutions/0133-clone-graph.cpp)                 |                  |
 | 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/)                     | [C++](solutions/0200-number-of-islands.cpp)           | BFS, DFS         |
 | 417 | [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/) | [C++](solutions/0417-pacific-atlantic-water-flow.cpp) |                  |
